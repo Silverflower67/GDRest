@@ -15,7 +15,8 @@ class User(typesystem.Schema):
     cp = typesystem.Integer()
     mod = typesystem.Object(properties=dict(isMod=typesystem.Boolean(), elder=typesystem.Boolean()))
     social = typesystem.Object(
-        properties={'youtube': typesystem.String(), 'twitter': typesystem.String(), 'twitch': typesystem.String()})
+        properties={'youtube': typesystem.String(allow_null=True), 'twitter': typesystem.String(allow_null=True),
+                    'twitch': typesystem.String(allow_null=True)})
 
     @classmethod
     def from_user_object(cls, user: gd.User):
@@ -41,9 +42,9 @@ class User(typesystem.Schema):
                 "elder": user.is_mod(gd.Role.ELDER_MODERATOR)
             },
             "social": {
-                "youtube": user.youtube_link,
-                "twitter": user.twitter_link,
-                "twitch": user.twitch_link
+                "youtube": user.youtube_link if user.youtube else None,
+                "twitter": user.twitter_link if user.twitter else None,
+                "twitch": user.twitch_link if user.twitch else None
             }
         }
         return cls.validate(data)

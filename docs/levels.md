@@ -36,6 +36,6 @@ Returns a level's info. `id` is the level's ID. For example,
     }
 }
 ```  
-`/level/<id>/author`
+`/level/<id>/author`  
 Returns the level's author info. Redirects to `/user/<username>`, where
-`username` is the author's username. See [User API](users.md) for more info
+`username` is the author's username. See [User API](users.md) for more info about the return value

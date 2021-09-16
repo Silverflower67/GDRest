@@ -23,12 +23,15 @@ async def get_levels(request: Request):
     client = auth_client(request.user)
     username: str = request.path_params["username"]
     user = await client.search_user(username)
-    lvls: list[gd.Level] = await user.get_levels()
+    lvls = await user.get_levels()
     display = {
         'levels': []
     }
     for lvl in lvls:
-        display['levels'].append(dict(Level.from_lvl_object(lvl)))
+        data = dict(Level.from_lvl_object(lvl))
+        for k in ["objects", "overload","author"]:
+            del data[k]
+        display['levels'].append(data)
     return JSONResponse(display)
 
 
@@ -46,4 +49,3 @@ UserMount = Mount("/user", routes=[
     Route("/{username:str}/levels", get_levels),
     Route("/{username:str}/posts", get_posts)
 ]);
-
