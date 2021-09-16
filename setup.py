@@ -25,5 +25,5 @@ setup(
         "Operating System :: OS Independent"
     ],
     install_requires=requirements,
-    entry_points={"console_scripts": "gdrest"}
+    entry_points={"console_scripts": "gdrest=gdrest"}
 )
