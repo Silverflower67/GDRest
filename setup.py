@@ -5,7 +5,7 @@ requirements = open("requirements.txt", "r").read().strip().splitlines()
 
 setup(
     name='GDRest',
-    version='1.0.0',
+    version='1.1.0b1',
     packages=["gdrest"],
     url='https://github.com/Silverflower67/GDRest',
     license='MIT',
@@ -25,5 +25,5 @@ setup(
         "Operating System :: OS Independent"
     ],
     install_requires=requirements,
-    entry_points={"console_scripts": "gdrest=main"}
+    entry_points={"console_scripts": "gdrest"}
 )
