@@ -4,10 +4,10 @@ from starlette.middleware.authentication import AuthenticationMiddleware
 from auth import GDAuthBackend
 import uvicorn
 
-from levels.routes import LevelMount
-from users.routes import UserMount
-from me.routes import MyMount
-from songs.routes import SongMount
+from gdrest.levels.routes import LevelMount
+from gdrest.users.routes import UserMount
+from gdrest.me.routes import MyMount
+from gdrest.songs.routes import SongMount
 
 routes = [LevelMount, UserMount, MyMount, SongMount]
 middleware = [

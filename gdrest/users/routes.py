@@ -1,12 +1,11 @@
 import gd
-import typesystem
 from starlette.requests import Request
 from starlette.responses import JSONResponse, PlainTextResponse
 from starlette.routing import Mount, Route
 
-from users.user import User
+from gdrest.users.user import User
 from auth import auth_client
-from levels.level import Level
+from gdrest.levels.level import Level
 
 
 async def get_user(request: Request):

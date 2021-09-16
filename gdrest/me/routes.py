@@ -4,7 +4,7 @@ from starlette.responses import JSONResponse
 from starlette.routing import Mount, Route
 from starlette.authentication import requires
 
-from users.user import User
+from gdrest.users.user import User
 from auth import auth_client
 
 

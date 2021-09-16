@@ -1,7 +1,7 @@
 import gd
 import typesystem
 
-from songs.song import Song
+from gdrest.songs.song import Song
 
 
 class Level(typesystem.Schema):

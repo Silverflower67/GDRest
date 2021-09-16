@@ -1,11 +1,9 @@
-import gd
-import typesystem
 from starlette.requests import Request
 from starlette.responses import JSONResponse, StreamingResponse
 from starlette.routing import Mount, Route
 
 from auth import auth_client
-from songs.song import Song
+from gdrest.songs.song import Song
 
 
 async def get_song(request: Request):
