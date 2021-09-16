@@ -35,7 +35,21 @@ async def listen_level_song(request: Request):
     return RedirectResponse(f"/song/{song_id}/listen")
 
 
+async def get_author(request: Request):
+    client = auth_client(request.user)
+    lid: int = request.path_params["lid"]
+    try:
+        lvl = await client.get_level(lid)
+    except gd.MissingAccess:
+        return JSONResponse({
+            "title": "Level not found",
+            "message": "Either the servers are down, or the level was not found in the servers"
+        }, status_code=404)
+    author = lvl.creator
+    return RedirectResponse(f"/user/{author.name}")
+
 LevelMount = Mount("/level", routes=[
     Route("/{lid:int}", get_level),
-    Route("/{lid:int}/listen", listen_level_song)
+    Route("/{lid:int}/listen", listen_level_song),
+    Route("/{lid:int}/author", get_author)
 ])
