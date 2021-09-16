@@ -19,6 +19,9 @@ async def listen_song(request: Request):
     sid: int = request.path_params["sid"]
     so = await client.get_song(sid)
     song = Song.from_song_object(so)
+    if song.audio is None:
+        return JSONResponse(dict(title="Awww...", message="This is an official song, I'm not so pro at programming..."),
+                            status_code=501)
     return StreamingResponse(song.audio, media_type='audio/mpeg')
 
 

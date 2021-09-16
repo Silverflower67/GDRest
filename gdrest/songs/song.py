@@ -4,6 +4,7 @@ import gd
 import typesystem
 import httpx
 
+
 class Song(typesystem.Schema):
     name = typesystem.String()
     author = typesystem.String()
@@ -30,5 +31,7 @@ class Song(typesystem.Schema):
 
     @property
     def audio(self):
+        if self.download_link is None:
+            return None
         au = httpx.get(self.download_link)
         return io.BytesIO(au.content)
