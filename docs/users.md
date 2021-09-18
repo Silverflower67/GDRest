@@ -32,8 +32,8 @@ Returns a user's info. For example, `/user/Ares` returns this:
 }
 ```  
 `/user/<name>/levels`
-Returns a list of the user's levels. For example, `/user/Mineber/levels` returns this (only took the  
-first 3 levels for you to have an idea):
+Returns a list of the user's levels. For example, `/user/Mineber/levels` returns this (only the  
+first 3 appear here):
 ```json
 {
   "levels": [

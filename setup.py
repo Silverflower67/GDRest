@@ -3,10 +3,11 @@ from setuptools import setup
 readme = open("README.md", "r", encoding="utf-8").read()
 requirements = open("requirements.txt", "r").read().strip().splitlines()
 
+
 setup(
     name='GDRest',
     version='1.1.0b1',
-    packages=["gdrest"],
+    packages=["gdrest","gdrest.levels","gdrest.me","gdrest.songs","gdrest.users"],
     url='https://github.com/Silverflower67/GDRest',
     license='MIT',
     author='Silverflower67',
