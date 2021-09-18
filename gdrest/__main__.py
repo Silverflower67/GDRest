@@ -13,6 +13,13 @@ routes = [LevelMount, UserMount, MyMount, SongMount]
 middleware = [
     Middleware(AuthenticationMiddleware, backend=GDAuthBackend())
 ]
-app = Starlette(routes=routes,middleware=middleware)
-if __name__ == '__main__':
+
+app = Starlette(routes=routes, middleware=middleware)
+
+
+def run():
     uvicorn.run(app, host="127.0.0.1", port=4700)
+
+
+if __name__ == '__main__':
+    run()

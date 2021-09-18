@@ -3,4 +3,4 @@ typesystem~=0.2.5
 httpx~=1.0.0b0
 uvicorn~=0.15.0
 setuptools~=56.0.0
-gd.py @ git+https://github.com/nekitdev/gd.py@master>=1.0.0rc1
+gd.py @ git+https://github.com/nekitdev/gd.py@master
